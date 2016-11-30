@@ -1,0 +1,64 @@
+<div class="container landing-page">
+  <div class="header">
+    <div class="h-option" ng-click="go('books')">Marketplace</div>
+  </div>
+
+  <div class="center non-hover">
+    <div class="books-list">
+        <div class="book-item">
+          <div class="box">
+            <div class="book-wrap">
+              <div class="book-img">
+                <div class="img" style="background: url('{{book.coverThumbnail}}')"></div>
+                <div class="back"></div>
+                <div class="book-left" style="background: url('{{book.coverThumbnail}}')"></div>
+              </div>
+            </div>
+            <div class="box-content">
+              <h3>{{book.name}}</h3>
+              <span class="author">by <strong>{{book.author.name}}</strong> • Published {{ book.published | date }}</span>
+              <span class="author"> <i class="fa fa-heart-o" aria-hidden="true"></i> {{ book.likes }}</span>
+              <span class="description">{{book.description}}</span>
+              <h4>Categories:</h4>
+              <span>{{book.genre.category}}, {{book.genre.name}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="book-introduction">
+      <div class="title"><span class="main">{{book.name}}<span class="subtitle">Introduction</span></span></span></div>
+      <p ng-repeat="p in book.introduction">{{p.content}}</p>
+      <div class="written_by">
+          <div class="picture" style="background: url('{{book.author.avatarThumbnail}}')"></div>
+          <span>Written by <strong>{{book.author.name}}</strong></span>
+      </div>
+    </div>
+
+    <div class="book-similar">
+
+    <h2 class="inset-text-effect">Similar reading</h2>
+    <span class="subtitle">If you like this book, we recommend you check out these emerging titles.</span>
+    <div class="clearfix"></div>
+      <div class="book" ng-repeat="book in similars">
+          <div class="book-wrap" ng-click="openBook(book)">
+            <div class="book-img">
+              <div class="img" style="background: url('{{book.coverThumbnail}}')"></div>
+              <div class="back"></div>
+              <div class="book-left" style="background: url('{{book.coverThumbnail}}')"></div>
+            </div>
+          </div>
+          <h3 class="inset-text-effect" ng-click="openBook(book)">{{book.name}}</h3>
+          <span class="author">by <strong>{{book.author.name}}</strong></span>
+          <span class="author"> <i class="fa fa-heart-o" aria-hidden="true"></i> {{book.likes}} • Published {{ book.published | date }}</span>
+      </div>
+      <div class="clearfix"></div>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer"></div>
+</div>

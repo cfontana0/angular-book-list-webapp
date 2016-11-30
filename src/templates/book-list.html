@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="header">
+      <div class="h-option">Marketplace</div>
+  </div>
+  <div class="center">
+    <div class="center-filters">
+      <span>Find me the best</span>
+      <select ng-model="search.genre.category" ng-options="item for item in categories" ng-change="clearPaginOnFilter()">
+        <option value="">All books</option>
+      </select>
+      <span>books about</span>
+      <select ng-model="search.genre.name" ng-options="item for item in about" ng-change="clearPaginOnFilter()">
+        <option value="">All Topics</option>
+      </select>
+
+      <span>Show me</span>
+      <select ng-model="pagin.items" ng-options="option for option in itemsOptions" ng-change="changeItems()"></select>
+      <span>Books.</span>
+      
+      <span class="search-box">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="text" placeholder="{{ placeholder }}" ng-model="search.name" ng-focus="placeholder = ''" ng-blur="placeholder = 'Search books'" ng-change="clearPaginOnFilter()"></input>
+        <span>Your search</span>
+      </span>
+      <div class="count">
+        <span ng-show="booksOnPage.length > 0">Showing books <strong>{{first + 1 }} - {{ (last > filteredBooks.length) ? filteredBooks.length : last }}</strong> of <strong>{{filteredBooks.length}} </strong>total.</span>
+        <span ng-show="booksOnPage.length === 0">Showing <strong>0</strong> books.</span>
+        <span ng-show="booksOnPage.length > 0" class="margin-left-20">View page: </span>
+        <select ng-show="booksOnPage.length > 0" ng-model="pagin.selectedPage" ng-options="option for option in pagin.pages" ng-change="goToPage()"></select>
+      </div>
+
+    </div>
+    <div class="books-list gallery">
+      <div class="book-item" ng-repeat="book in booksOnPage">
+        <div class="box">
+          <div class="book-wrap">
+            <div class="book-img" ng-click="openBook(book)">
+              <div class="img" style="background: url('{{book.coverThumbnail}}')"></div>
+              <div class="back"></div>
+              <div class="book-left" style="background: url('{{book.coverThumbnail}}')"></div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="box-content">
+            <div class="author-img" style="background: url('{{book.author.avatarThumbnail}}')"></div>
+            <h3 ng-click="openBook(book)">{{book.name}}</h3>
+            <span class="author">by {{book.author.name}} • Published {{ book.published | date }}</span>
+            <span class="author"> <i class="fa fa-heart-o" aria-hidden="true"></i> {{ book.likes }}</span>
+            <span class="description">{{book.description}}</span>
+            <button ng-click="openBook(book)">Details</button>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+
+      <div class="not_found" ng-show="booksOnPage.length === 0"><i class="fa fa-meh-o" aria-hidden="true"></i> <span>Oops! No books matched your requirements.</span></div>
+
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="footer"></div>
+</div>
