@@ -36,8 +36,11 @@ app.controller('bookCtrl', function ($scope, $http, $routeParams, $location, $ti
         $http.get('./src/static/books.json').then(function (books) {
             angular.forEach(books.data, function (book) {
                 if (encodeURIComponent(book.name.replace(/\s/g, "_")) === encodeURIComponent(name)) {
+
+                    //workaround solution to improve the performance of the list view creating the thumbnail images.
                     book.coverThumbnail = book.cover.replace('500/700', '150/210');
                     book.author.avatarThumbnail = book.author.avatar.replace('250/250', '80/80');
+
                     $scope.book = book;
                 }
             });
@@ -59,7 +62,10 @@ app.controller('bookCtrl', function ($scope, $http, $routeParams, $location, $ti
                 if ((encodeURIComponent(book.name.replace(/\s/g, "_")) !== (encodeURIComponent($scope.book.name.replace(/\s/g, "_")))) &&  count < 3 && ((book.genre.name === $scope.book.genre.name) || (book.genre.category === $scope.book.genre.category))) {
                     count = count + 1;
                     book.cover = book.cover + '?' + key;
+
+                    //workaround solution to improve the performance of the list view creating the thumbnail images.
                     book.coverThumbnail = book.cover.replace('500/700', '150/210');
+
                     $scope.similars.push(book);
                 }
             });
