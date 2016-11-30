@@ -11,7 +11,7 @@ app.controller('bookListCtrl', function ($scope, $http, $location, $filter, $doc
     $scope.search = {name: undefined, genre: undefined};
 
     /**
-    * Runs the main task of the controller, including fetching all available books
+    * Runs the main task of the controller, including fetching all the available books
     * 
     * @author  cfontana0
     * @method start
@@ -46,9 +46,9 @@ app.controller('bookListCtrl', function ($scope, $http, $location, $filter, $doc
     };
 
     /**
-    * Runs when the values on the current scope model changes. this function filters all books 
-    * according to filter configuration and then calculates the number of pages based on pagin 
-    * confguration. Finally it selects page 1.
+    * Runs when the values on the current scope model changes. This function filters all books
+    * according to the filter configuration and then it calculates the number of pages based on the paging
+    * configuration. Finally it selects page 1.
     * 
     * @author  cfontana0
     * @method changeItems
@@ -82,7 +82,7 @@ app.controller('bookListCtrl', function ($scope, $http, $location, $filter, $doc
     };
 
     /**
-    * Change the pagin and slices the filtered books according to the number of items shown by page.
+    * Change the paging and slices the filtered books according to the number of items shown by page.
     * 
     * @author  cfontana0
     * @method goToPage
@@ -97,7 +97,7 @@ app.controller('bookListCtrl', function ($scope, $http, $location, $filter, $doc
     };
 
     /**
-    * Clears current pagin information restarting it to default (4 items by page, page 1 selected).
+    * Clears the current pagin information, restarting it to default (4 items by page, page 1 selected).
     * 
     * @author  cfontana0
     * @method clearPaginOnFilter
@@ -109,7 +109,7 @@ app.controller('bookListCtrl', function ($scope, $http, $location, $filter, $doc
     };
 
     /**
-    * Gets the DOM selector for all book-items on viewport.
+    * Gets the DOM selector for all the book items on the current viewport.
     * 
     * @author  cfontana0
     * @method getItemsOnViewport
@@ -131,7 +131,7 @@ app.controller('bookListCtrl', function ($scope, $http, $location, $filter, $doc
     };
 
     /**
-    * Returns true/false if the provided body element is visible on current viewport
+    * Returns true/false if the provided body element is visible on the current viewport
     * 
     * @author  cfontana0
     * @method elementInViewport
@@ -169,7 +169,7 @@ app.controller('bookListCtrl', function ($scope, $http, $location, $filter, $doc
     });
 
     /**
-    * Starts controller logic.
+    * Starts the controller logic.
     * 
     * @author  cfontana0
     */

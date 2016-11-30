@@ -16,6 +16,8 @@ $ npm run dev
 
 This script will run automatically the development server and the sass watch processor.
 
+After that, go to `http://localhost:8100/`.
+
 
 ### How to run the project for testing purposes
 
@@ -24,3 +26,5 @@ $ npm start
 ```
 
 This script will run the development server and will load the css from already processed files.
+
+After that, go to `http://localhost:8100/`.

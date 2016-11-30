@@ -6,7 +6,7 @@ app.controller('bookCtrl', function ($scope, $http, $routeParams, $location, $ti
     window.scrollTo(0, 0);
 
     /**
-    * Runs the main task of the controller, executes getBook method.
+    * Runs the main task of the controller, executes the getBook method.
     * 
     * @author  cfontana0
     * @method start
@@ -23,7 +23,7 @@ app.controller('bookCtrl', function ($scope, $http, $routeParams, $location, $ti
 
 
     /**
-    * Fetchs existing books and gets the book objects related to the provided name-identifier
+    * Fetchs existing books and gets the book objects related to the provided name identifier,
     * then calls the provided callback.
     * 
     * @author  cfontana0
@@ -92,7 +92,7 @@ app.controller('bookCtrl', function ($scope, $http, $routeParams, $location, $ti
     };
 
     /**
-    * Starts controller logic.
+    * Starts the controller logic.
     * 
     * @author  cfontana0
     */
